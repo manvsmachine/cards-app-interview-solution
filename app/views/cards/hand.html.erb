@@ -1,0 +1,17 @@
+<div style="text-align: center; padding-top: .5em; padding-bottom: 2em;">
+  <span><a href="/draw" class="btn btn-secondary">Draw</a></span>
+  <span><a href="/show" class="btn btn-secondary">Show</a></span>
+  <span><a href="/shuffle" class="btn btn-secondary">Shuffle</a></span>
+</div>
+<div>
+  <% flash.each do |type, message| %>
+    <p><%= message %></p>
+  <% end %>
+</div>
+<div>
+  <% @cards.each do |card| %>
+    <span style="font-size: 1.5em; color: <%= ["diamonds", "hearts"].include?(card.suit) ? "red" : "black" %>">
+      <%= card.rank %><i class="bi bi-suit-<%= card.suit.singularize %>-fill"></i>
+    </span>
+  <% end %>
+</div>
